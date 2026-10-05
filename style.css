@@ -1,0 +1,151 @@
+/* =========================
+   1. BASIC PAGE SETTINGS
+   ========================= */
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f5f7f8;
+  color: #1f2d36;
+  line-height: 1.6;
+}
+
+h1,
+h2 {
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+/* =========================
+   2. HEADER AND NAVIGATION
+   ========================= */
+header {
+  background-color: #0b2d3f;
+  padding: 15px 30px;
+}
+
+.site-name {
+  color: #ffffff;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin: 0 0 10px 0;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+nav a {
+  color: #cfe8ef;
+  text-decoration: none;
+  font-size: 15px;
+}
+
+nav a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+/* =========================
+   3. HERO (TOP BANNER)
+   ========================= */
+.hero {
+  background-color: #134e5e;
+  color: #ffffff;
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.hero h1 {
+  font-size: 48px;
+  margin: 0 0 15px 0;
+}
+
+.tagline {
+  font-size: 20px;
+  max-width: 600px;
+  margin: 0 auto 30px auto;
+}
+
+.button {
+  display: inline-block;
+  background-color: #f2a541;
+  color: #0b2d3f;
+  padding: 12px 28px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.button:hover {
+  background-color: #ffffff;
+}
+
+/* =========================
+   4. MAIN CONTENT SECTIONS
+   ========================= */
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+main section {
+  background-color: #ffffff;
+  margin: 30px 0;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+h2 {
+  color: #134e5e;
+  border-bottom: 3px solid #f2a541;
+  padding-bottom: 8px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+main li {
+  margin-bottom: 8px;
+}
+
+main a {
+  color: #134e5e;
+  font-weight: bold;
+}
+
+.placeholder-note {
+  font-style: italic;
+  color: #5b6f7a;
+}
+
+/* Trailer box */
+.video-box {
+  background-color: #0b2d3f;
+  color: #cfe8ef;
+  text-align: center;
+  padding: 80px 20px;
+  border-radius: 8px;
+}
+
+/* =========================
+   5. FOOTER
+   ========================= */
+footer {
+  background-color: #0b2d3f;
+  color: #cfe8ef;
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+}
