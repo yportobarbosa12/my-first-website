@@ -156,19 +156,26 @@ footer {
 }
 
 /* =========================
-   6. MEDIA QUERY (SMALL SCREENS)
-   Changes the layout on phones and narrow windows
+   6. MEDIA QUERIES (RESPONSIVE DESIGN)
    ========================= */
-@media (max-width: 700px) {
+
+/* Laptops and tablets: the menu moves under the site name and is centered */
+@media (max-width: 1200px) {
   header {
     flex-direction: column;
     text-align: center;
-    padding: 15px 20px;
   }
 
   nav ul {
     justify-content: center;
-    gap: 8px 16px;
+    gap: 8px 18px;
+  }
+}
+
+/* Phones: smaller title and less space around the content */
+@media (max-width: 700px) {
+  header {
+    padding: 15px 20px;
   }
 
   .hero {
