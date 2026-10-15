@@ -20,6 +20,12 @@ h2 {
 header {
   background-color: #03396c;
   padding: 15px 30px;
+  /* FLEXBOX: puts the site name and the menu on the same row */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 .site-name {
@@ -27,18 +33,17 @@ header {
   font-weight: bold;
   letter-spacing: 2px;
   text-transform: uppercase;
-  margin: 0 0 10px 0;
+  margin: 0;
 }
 
 nav ul {
   list-style: none;
   margin: 0;
   padding: 0;
-}
-
-nav li {
-  display: inline-block;
-  margin-right: 20px;
+  /* FLEXBOX: lines up the menu links in a row with even spacing */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
 nav a {
@@ -148,4 +153,46 @@ footer {
   text-align: center;
   padding: 20px;
   font-size: 14px;
+}
+
+/* =========================
+   6. MEDIA QUERY (SMALL SCREENS)
+   Changes the layout on phones and narrow windows
+   ========================= */
+@media (max-width: 700px) {
+  header {
+    flex-direction: column;
+    text-align: center;
+    padding: 15px 20px;
+  }
+
+  nav ul {
+    justify-content: center;
+    gap: 8px 16px;
+  }
+
+  .hero {
+    padding: 50px 20px;
+  }
+
+  .hero h1 {
+    font-size: 32px;
+  }
+
+  .tagline {
+    font-size: 17px;
+  }
+
+  main {
+    padding: 10px;
+  }
+
+  main section {
+    padding: 20px;
+    margin: 20px 0;
+  }
+
+  .video-box {
+    padding: 50px 20px;
+  }
 }
