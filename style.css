@@ -34,8 +34,13 @@ a:focus-visible {
   z-index: 100;
 }
 
+/* REVISION: when focused, the skip link now sits in the normal page flow as a bar at the very top.
+   It pushes the header down instead of floating on top of the site name. */
 .skip-link:focus {
-  top: 10px;
+  position: static;
+  display: block;
+  text-align: center;
+  border-radius: 0;
 }
 
 /* ACCESSIBILITY CHANGE: text that screen readers read but sighted visitors do not see
