@@ -14,6 +14,44 @@ h2 {
   font-family: Georgia, "Times New Roman", serif;
 }
 
+/* ACCESSIBILITY CHANGE: visible keyboard focus. Without this, keyboard users can lose track of where they are.
+   Dark blue outline works on the white sections (contrast above 3:1). */
+a:focus-visible {
+  outline: 3px solid #03396c;
+  outline-offset: 3px;
+}
+
+/* ACCESSIBILITY CHANGE: skip link, hidden off the screen until a keyboard user tabs to it */
+.skip-link {
+  position: absolute;
+  top: -60px;
+  left: 10px;
+  background-color: #ffffff;
+  color: #03396c;
+  font-weight: bold;
+  padding: 10px 16px;
+  border-radius: 4px;
+  z-index: 100;
+}
+
+.skip-link:focus {
+  top: 10px;
+}
+
+/* ACCESSIBILITY CHANGE: text that screen readers read but sighted visitors do not see
+   (used for "opens in a new tab") */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
 /* =========================
    2. HEADER AND NAVIGATION
    ========================= */
@@ -49,12 +87,19 @@ nav ul {
 nav a {
   color: #d6efff;
   text-decoration: none;
-  font-size: 15px;
+  font-size: 0.95rem; /* ACCESSIBILITY CHANGE: was 15px. rem lets the text grow if a visitor raises their browser text size */
 }
 
 nav a:hover {
   color: #ffffff;
   text-decoration: underline;
+}
+
+/* ACCESSIBILITY CHANGE: keyboard focus gets the same look as hover, plus a white outline that shows on the dark blue header */
+nav a:focus-visible {
+  color: #ffffff;
+  text-decoration: underline;
+  outline-color: #ffffff;
 }
 
 /* =========================
@@ -68,12 +113,12 @@ nav a:hover {
 }
 
 .hero h1 {
-  font-size: 48px;
+  font-size: 3rem; /* ACCESSIBILITY CHANGE: was 48px (same size, but now it scales with browser text settings) */
   margin: 0 0 15px 0;
 }
 
 .tagline {
-  font-size: 20px;
+  font-size: 1.25rem; /* ACCESSIBILITY CHANGE: was 20px */
   max-width: 600px;
   margin: 0 auto 30px auto;
 }
@@ -92,16 +137,26 @@ nav a:hover {
   background-color: #ffffff;
 }
 
+/* ACCESSIBILITY CHANGE: white focus outline so the button's focus ring is visible on the blue banner */
+.button:focus-visible {
+  background-color: #ffffff;
+  outline: 3px solid #ffffff;
+  outline-offset: 3px;
+}
+
 /* =========================
    4. MAIN CONTENT SECTIONS
    ========================= */
-main {
+/* ACCESSIBILITY CHANGE: this used to be "main". The page now has the hero inside <main>,
+   so the 900px centered layout belongs to this wrapper instead. The look is the same. */
+.page-content {
   max-width: 900px;
   margin: 0 auto;
   padding: 20px;
 }
 
-main section {
+/* ACCESSIBILITY CHANGE: was "main section". Changed so the hero does not get the white card style */
+.page-content section {
   background-color: #ffffff;
   margin: 30px 0;
   padding: 30px;
@@ -121,18 +176,27 @@ img {
   border-radius: 8px;
 }
 
-main li {
+/* ACCESSIBILITY CHANGE: figures have extra browser spacing, so this keeps the image and caption looking like before */
+figure {
+  margin: 16px 0;
+}
+
+figcaption {
+  margin-top: 8px;
+}
+
+.page-content li { /* was "main li" */
   margin-bottom: 8px;
 }
 
-main a {
+.page-content a { /* was "main a" */
   color: #03396c;
   font-weight: bold;
 }
 
 .placeholder-note {
   font-style: italic;
-  color: #5b6f7a;
+  color: #5b6f7a; /* contrast checked: about 5.2 to 1 on white, passes AA */
 }
 
 /* Trailer box */
@@ -152,7 +216,7 @@ footer {
   color: #d6efff;
   text-align: center;
   padding: 20px;
-  font-size: 14px;
+  font-size: 0.875rem; /* ACCESSIBILITY CHANGE: was 14px */
 }
 
 /* =========================
@@ -183,18 +247,18 @@ footer {
   }
 
   .hero h1 {
-    font-size: 32px;
+    font-size: 2rem; /* ACCESSIBILITY CHANGE: was 32px */
   }
 
   .tagline {
-    font-size: 17px;
+    font-size: 1.0625rem; /* ACCESSIBILITY CHANGE: was 17px */
   }
 
-  main {
+  .page-content { /* was "main" */
     padding: 10px;
   }
 
-  main section {
+  .page-content section { /* was "main section" */
     padding: 20px;
     margin: 20px 0;
   }

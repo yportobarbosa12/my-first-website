@@ -9,10 +9,14 @@
 </head>
 <body>
 
+  <!-- ACCESSIBILITY CHANGE: skip link. Keyboard users press Tab once and can jump past the menu. It is hidden until it gets focus. -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
   <!-- HEADER: site name and navigation menu -->
   <header>
     <p class="site-name">Untitled Documentary Project</p>
-    <nav>
+    <!-- ACCESSIBILITY CHANGE: aria-label tells screen readers what this menu is -->
+    <nav aria-label="Main menu">
       <ul>
         <li><a href="#about">About the Film</a></li>
         <li><a href="#science">The Science</a></li>
@@ -25,22 +29,34 @@
     </nav>
   </header>
 
-  <!-- HERO: the first thing visitors see -->
-  <section class="hero">
-    <h1>Untitled Documentary Project</h1>
-    <p class="tagline">A science documentary about Katie Senft and the team studying microplastics in Lake Tahoe.</p>
-    <a href="#trailer" class="button">Watch the Trailer</a>
-  </section>
+  <!-- ACCESSIBILITY CHANGE: <main> now starts above the hero, so the main heading (h1) is inside the main landmark and the skip link lands on it.
+       The id is the target of the skip link. -->
+  <main id="main-content">
 
-  <main>
+    <!-- HERO: the first thing visitors see -->
+    <!-- ACCESSIBILITY CHANGE: aria-labelledby gives this section a name, so screen readers list it as a landmark -->
+    <section class="hero" aria-labelledby="hero-heading">
+      <h1 id="hero-heading">Untitled Documentary Project</h1>
+      <p class="tagline">A science documentary about Katie Senft and the team studying microplastics in Lake Tahoe.</p>
+      <a href="#trailer" class="button">Watch the Trailer</a>
+    </section>
+
+    <!-- ACCESSIBILITY CHANGE: this wrapper keeps your 900px centered layout (it used to be the "main" style) -->
+    <div class="page-content">
 
     <!-- ABOUT THE FILM -->
     <section id="about">
       <h2>About the Film</h2>
-      <img src="images/about-the-film.jpg" alt="A still frame from the documentary">
+      <!-- ACCESSIBILITY CHANGE: the old alt text was too general. REPLACE the text in brackets with what is really in this image
+           (who is in it, where they are, what they are doing). Delete the brackets when you are done. -->
+      <img src="images/about-the-film.jpg" alt="A still frame from the documentary showing [DESCRIBE WHAT IS IN THE FRAME]">
       <p>This documentary follows Katie Senft, a research faculty member in the biology department at the University of Nevada, Reno, and the captain of the university's research vessel at Lake Tahoe. Out on the water, she and her colleagues study microplastics and other particles that affect the health and clarity of the lake.</p>
-      <img src="images/katie-senft-at-the-helm.jpg" alt="Katie Senft smiling at the helm of the University of Nevada, Reno research vessel on Lake Tahoe">
-      <p class="placeholder-note">Katie Senft at the helm of the research vessel on Lake Tahoe.</p>
+      <!-- ACCESSIBILITY CHANGE: image and caption are now grouped in a figure, so they are connected for assistive technology.
+           The alt text is shorter so it does not repeat the caption word for word. -->
+      <figure>
+        <img src="images/katie-senft-at-the-helm.jpg" alt="Katie Senft smiling at the helm of the research vessel">
+        <figcaption class="placeholder-note">Katie Senft at the helm of the research vessel on Lake Tahoe.</figcaption>
+      </figure>
       <p class="placeholder-note">Coming soon: the official synopsis, the film's running time, and the year of release.</p>
     </section>
 
@@ -55,7 +71,8 @@
     <!-- RESEARCH PROCESS -->
     <section id="research">
       <h2>The Research Process</h2>
-      <img src="images/research-process.jpg" alt="Behind the scenes of the documentary research and filming">
+      <!-- ACCESSIBILITY CHANGE: the old alt text did not say what the picture shows. REPLACE the brackets with a real description. -->
+      <img src="images/research-process.jpg" alt="Behind the scenes of the documentary: [DESCRIBE WHO IS DOING WHAT IN THE PHOTO]">
       <p>This section will show how the documentary was made, from the first idea to the final cut. Each step below will be expanded with photos and short descriptions.</p>
       <ol>
         <li><strong>Background research:</strong> reading studies and articles to understand the scientific topic.</li>
@@ -68,6 +85,7 @@
     <!-- THE PEOPLE -->
     <section id="people">
       <h2>The People</h2>
+      <!-- This alt text is acceptable. For more detail you could add what the vessel looks like or the time of day. -->
       <img src="images/the-people.jpg" alt="The research vessel on Lake Tahoe">
       <p>The film centers on Katie Senft and the research team working alongside her on Lake Tahoe.</p>
       <ul>
@@ -85,8 +103,10 @@
       <ul>
         <li>National Oceanic and Atmospheric Administration (NOAA), which funds the research project</li>
         <li>Desert Research Institute, a joint partner on the project</li>
-        <li><a href="https://www.unr.edu/tahoe-institute" target="_blank">Tahoe Institute for Global Sustainability</a></li>
-        <li><a href="https://www.unr.edu/lake-tahoe" target="_blank">University of Nevada, Reno at Lake Tahoe</a></li>
+        <!-- ACCESSIBILITY CHANGE (this link and the two below): the hidden text warns screen reader users that the link opens a new tab.
+             rel="noopener noreferrer" is a safety setting for links that open a new tab. -->
+        <li><a href="https://www.unr.edu/tahoe-institute" target="_blank" rel="noopener noreferrer">Tahoe Institute for Global Sustainability<span class="visually-hidden"> (opens in a new tab)</span></a></li>
+        <li><a href="https://www.unr.edu/lake-tahoe" target="_blank" rel="noopener noreferrer">University of Nevada, Reno at Lake Tahoe<span class="visually-hidden"> (opens in a new tab)</span></a></li>
       </ul>
     </section>
 
@@ -103,9 +123,11 @@
     <section id="contact">
       <h2>Stay Connected</h2>
       <p>This section will share screening dates, film festival news, and ways to follow the project. Contact information and social media links will be added here.</p>
-      <p>This documentary is being produced at the <a href="https://www.unr.edu/journalism" target="_blank">Reynolds School of Journalism, University of Nevada, Reno</a>.</p>
+      <p>This documentary is being produced at the <a href="https://www.unr.edu/journalism" target="_blank" rel="noopener noreferrer">Reynolds School of Journalism, University of Nevada, Reno<span class="visually-hidden"> (opens in a new tab)</span></a>.</p>
       <p class="placeholder-note">Research details on this page are summarized from the article "Microplastic Mayhem: How three researchers are analyzing particles in Lake Tahoe" by Madison Kitch, University of Nevada, Reno, July 22, 2025.</p>
     </section>
+
+    </div> <!-- end of page-content -->
 
   </main>
 
