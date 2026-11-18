@@ -3,141 +3,96 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- REVISION: new page title that describes the page and no longer starts with "Untitled" -->
-  <title>Lake Tahoe Microplastics Documentary | A Science Documentary in Progress</title>
-  <!-- Link to the CSS file -->
+  <title>Home | Lake Tahoe Microplastics Documentary</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- ACCESSIBILITY CHANGE: skip link. Keyboard users press Tab once and can jump past the menu. It is hidden until it gets focus. -->
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
-  <!-- HEADER: site name and navigation menu -->
+  <!-- HEADER: same on all three pages -->
   <header>
     <p class="site-name">Untitled Documentary Project</p>
-    <!-- ACCESSIBILITY CHANGE: aria-label tells screen readers what this menu is -->
+    <!-- JAVASCRIPT FEATURE 1: this button opens and closes the menu on phones -->
+    <button class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="main-menu">Menu</button>
     <nav aria-label="Main menu">
-      <ul>
-        <li><a href="#about">About the Film</a></li>
-        <li><a href="#science">The Science</a></li>
-        <li><a href="#research">Research Process</a></li>
-        <li><a href="#people">The People</a></li>
-        <li><a href="#partners">Partners</a></li>
-        <li><a href="#trailer">Trailer</a></li>
-        <li><a href="#contact">Stay Connected</a></li>
+      <ul id="main-menu">
+        <li><a href="index.html" aria-current="page">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
   </header>
 
-  <!-- ACCESSIBILITY CHANGE: <main> now starts above the hero, so the main heading (h1) is inside the main landmark and the skip link lands on it.
-       The id is the target of the skip link. -->
   <main id="main-content">
 
-    <!-- HERO: the first thing visitors see -->
-    <!-- ACCESSIBILITY CHANGE: aria-labelledby gives this section a name, so screen readers list it as a landmark -->
     <section class="hero" aria-labelledby="hero-heading">
       <h1 id="hero-heading">Untitled Documentary Project</h1>
       <p class="tagline">A science documentary about Katie Senft and the team studying microplastics in Lake Tahoe.</p>
       <a href="#trailer" class="button">Watch the Trailer</a>
     </section>
 
-    <!-- ACCESSIBILITY CHANGE: this wrapper keeps your 900px centered layout (it used to be the "main" style) -->
     <div class="page-content">
 
-    <!-- ABOUT THE FILM -->
-    <section id="about">
-      <h2>About the Film</h2>
-      <!-- REVISION: the bracketed placeholder is gone. This is now your own description of the photo. -->
-      <!-- STUDENT EDIT: shortened this alt text to under 100 characters after WAVE flagged it as long alternative text -->
-      <img src="images/about-the-film.jpg" alt="A diver in a blue drysuit surfaces in Lake Tahoe, with pine trees and snowy mountains behind her.">
-      <p>This documentary follows Katie Senft, a research faculty member in the biology department at the University of Nevada, Reno, and the captain of the university's research vessel at Lake Tahoe. Out on the water, she and her colleagues study microplastics and other particles that affect the health and clarity of the lake.</p>
-      <!-- REVISION: the Katie Senft photo is removed for now because the image file is not in the images folder yet.
-           When you add images/katie-senft-at-the-helm.jpg, paste this back here:
-      <figure>
-        <img src="images/katie-senft-at-the-helm.jpg" alt="Katie Senft smiling at the helm of the research vessel">
-        <figcaption class="placeholder-note">Katie Senft at the helm of the research vessel on Lake Tahoe.</figcaption>
-      </figure>
-      -->
-      <p class="placeholder-note">Coming soon: the official synopsis, the film's running time, and the year of release.</p>
-    </section>
+      <!-- INTRO: image beside text (CSS grid) -->
+      <section class="intro" aria-labelledby="intro-heading">
+        <img src="images/about-the-film.jpg" alt="A diver in a blue drysuit surfaces in Lake Tahoe, with pine trees and snowy mountains behind her.">
+        <div>
+          <h2 id="intro-heading">Why Tahoe, and why now</h2>
+          <p>Lake Tahoe is known for its clear blue water. Out on the lake, a small research team measures the tiny particles that put that clarity at risk, and this film follows them while they work.</p>
+          <a href="about.html" class="text-link">Read more about the film</a>
+        </div>
+      </section>
 
-    <!-- THE SCIENCE -->
-    <section id="science">
-      <h2>The Science Behind the Story</h2>
-      <p>The research team collects lake water at three depths: the surface, 5 meters, and 15 meters. The water is pumped through a stack of sieves that catch microplastics of different sizes, and the samples are then taken to the lab for testing. Their sampling line runs from near the shore by Incline Creek out to the middle of the lake, which shows how plastics are spread across the water.</p>
-      <p>To measure what is in the water, the team lowers a device called a LISST 200X that records the size and count of particles at different depths. They are also adding a newer instrument, the CytoSub, which can analyze particles as small as 0.1 micrometers and reads how particles interact with light. That helps tell different kinds of particles apart, including very small plankton.</p>
-      <p>Microplastics are not the only thing affecting how clear Tahoe is. Too much phosphorus and nitrogen can act like fertilizer and fuel larger algae blooms. The project is funded by the National Oceanic and Atmospheric Administration and is a joint effort with the Desert Research Institute.</p>
-    </section>
+      <!-- THREE CARDS (CSS grid) that link to the other pages -->
+      <section aria-labelledby="explore-heading">
+        <h2 id="explore-heading">Explore the project</h2>
+        <div class="card-grid">
+          <article class="card">
+            <h3>The Film</h3>
+            <p>What the documentary is about and how it was made.</p>
+            <a href="about.html#film">About the film</a>
+          </article>
+          <article class="card">
+            <h3>The Science</h3>
+            <p>How the team samples the water and what they measure.</p>
+            <a href="about.html#science">About the science</a>
+          </article>
+          <article class="card">
+            <h3>The People</h3>
+            <p>Meet the researchers on board the research vessel.</p>
+            <a href="about.html#people">Meet the team</a>
+          </article>
+        </div>
+      </section>
 
-    <!-- RESEARCH PROCESS -->
-    <section id="research">
-      <h2>The Research Process</h2>
-      <!-- REVISION: the bracketed placeholder is gone. This is now your own description of the photo. -->
-      <img src="images/research-process.jpg" alt="A Garmin navigation screen on the research vessel showing a map of the Lake Tahoe shoreline.">
-      <p>This section will show how the documentary was made, from the first idea to the final cut. Each step below will be expanded with photos and short descriptions.</p>
-      <ol>
-        <li><strong>Background research:</strong> reading studies and articles to understand the scientific topic.</li>
-        <li><strong>Connecting with scientists:</strong> reaching out to researchers and learning about their work.</li>
-        <li><strong>Filming in the field and in the lab:</strong> following the scientists through their daily work.</li>
-        <li><strong>Editing and fact-checking:</strong> shaping the story and reviewing the science with experts.</li>
-      </ol>
-    </section>
+      <!-- JAVASCRIPT FEATURE 2: the facts below are revealed when the button is clicked -->
+      <section aria-labelledby="facts-heading">
+        <h2 id="facts-heading">Quick facts</h2>
+        <p>Curious about the research before you read the full story?</p>
+        <button class="button button-dark" id="facts-button" aria-expanded="false" aria-controls="facts-list">Show quick facts</button>
+        <ul id="facts-list" class="facts" hidden>
+          <li>Water is collected at three depths: the surface, 5 meters, and 15 meters.</li>
+          <li>The team uses a LISST 200X to record particle size and count.</li>
+          <li>The research is funded by NOAA, with the Desert Research Institute as a partner.</li>
+        </ul>
+      </section>
 
-    <!-- THE PEOPLE -->
-    <section id="people">
-      <h2>The People</h2>
-      <!-- REVISION: more detailed alt text, written by you -->
-      <!-- STUDENT EDIT: shortened this alt text to under 100 characters after WAVE flagged it as long alternative text -->
-      <img src="images/the-people.jpg" alt="The UNR at Lake Tahoe research vessel on the lake, with snowy mountains behind it.">
-      <p>The film centers on Katie Senft and the research team working alongside her on Lake Tahoe.</p>
-      <ul>
-        <li><strong>Katie Senft:</strong> research faculty in the biology department and captain of the research vessel.</li>
-        <li><strong>Carina Seitz:</strong> research assistant professor in biology and part of the Tahoe Institute for Global Sustainability. She earned her Ph.D. in geology in Argentina and now analyzes Lake Tahoe's clarity and microplastics.</li>
-        <li><strong>Consuelo Del Rio:</strong> biology student on the research team.</li>
-        <li><strong>Sudeep Chandra, Ph.D.:</strong> professor of limnology and faculty member of the Tahoe Institute for Global Sustainability, who works with Seitz on the project.</li>
-      </ul>
-    </section>
+      <section id="trailer" aria-labelledby="trailer-heading">
+        <h2 id="trailer-heading">Watch the Trailer</h2>
+        <p>The official trailer will be placed here once the film is edited.</p>
+        <div class="video-box">
+          <p>Trailer coming soon</p>
+        </div>
+      </section>
 
-    <!-- PARTNERS -->
-    <section id="partners">
-      <h2>Partners &amp; Support</h2>
-      <p>These organizations are connected to the research featured in the film.</p>
-      <ul>
-        <li>National Oceanic and Atmospheric Administration (NOAA), which funds the research project</li>
-        <li>Desert Research Institute, a joint partner on the project</li>
-        <!-- ACCESSIBILITY CHANGE (this link and the two below): the hidden text warns screen reader users that the link opens a new tab.
-             rel="noopener noreferrer" is a safety setting for links that open a new tab. -->
-        <li><a href="https://www.unr.edu/tahoe-institute" target="_blank" rel="noopener noreferrer">Tahoe Institute for Global Sustainability<span class="visually-hidden"> (opens in a new tab)</span></a></li>
-        <li><a href="https://www.unr.edu/lake-tahoe" target="_blank" rel="noopener noreferrer">University of Nevada, Reno at Lake Tahoe<span class="visually-hidden"> (opens in a new tab)</span></a></li>
-      </ul>
-    </section>
-
-    <!-- TRAILER -->
-    <section id="trailer">
-      <h2>Watch the Trailer</h2>
-      <p>The official trailer will be placed here once the film is edited.</p>
-      <div class="video-box">
-        <p>Trailer coming soon</p>
-      </div>
-    </section>
-
-    <!-- STAY CONNECTED -->
-    <section id="contact">
-      <h2>Stay Connected</h2>
-      <p>This section will share screening dates, film festival news, and ways to follow the project. Contact information and social media links will be added here.</p>
-      <p>This documentary is being produced at the <a href="https://www.unr.edu/journalism" target="_blank" rel="noopener noreferrer">Reynolds School of Journalism, University of Nevada, Reno<span class="visually-hidden"> (opens in a new tab)</span></a>.</p>
-      <p class="placeholder-note">Research details on this page are summarized from the article "Microplastic Mayhem: How three researchers are analyzing particles in Lake Tahoe" by Madison Kitch, University of Nevada, Reno, July 22, 2025.</p>
-    </section>
-
-    </div> <!-- end of page-content -->
-
+    </div>
   </main>
 
-  <!-- FOOTER -->
   <footer>
     <p>&copy; 2026 Untitled Documentary Project. A documentary by Yasmin Barbosa.</p>
   </footer>
 
+  <script src="js/script.js"></script>
 </body>
 </html>
